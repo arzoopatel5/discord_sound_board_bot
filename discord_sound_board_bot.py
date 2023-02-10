@@ -56,7 +56,7 @@ async def randomtime():
     play a random audio clip
     """
     if bot.voice_clients:
-        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio('sounds/' + random.choice(sounds_list)))
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(sound_dir + random.choice(sounds_list)))
         bot.voice_clients[0].play(source, after=lambda e: print('Player error: %s' % e) if e else None)
         print('random clip played at {0}'.format(datetime.now().strftime("%H:%M:%S")))
     else:
